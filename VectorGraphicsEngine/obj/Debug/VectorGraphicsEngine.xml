@@ -1,0 +1,490 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+VectorGraphicsEngine
+</name>
+</assembly>
+<members>
+<member name="T:VectorGraphicsEngine.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:VectorGraphicsEngine.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:VectorGraphicsEngine.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.GetExtents">
+ <summary>
+ Gets the bounding rectangle that encompasses all visible elements.
+ </summary>
+ <returns>A RectangleF representing the extents, or RectangleF.Empty if no elements are visible.</returns>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.FitToExtents(System.Single)">
+ <summary>
+ Adjusts the view to fit all visible elements with optional padding.
+ </summary>
+ <param name="PaddingPercent">The percentage of padding to add around the extents.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.GetRegionViewSettings(System.Drawing.RectangleF,System.Single,System.Single,System.Single)">
+ <summary>
+ Calculates view settings to fit a specific region into a given pixel area.
+ </summary>
+ <param name="region">The region in real-world coordinates to fit.</param>
+ <param name="PixelWidth">The width of the target area in pixels.</param>
+ <param name="PixelHeight">The height of the target area in pixels.</param>
+ <param name="paddingPercent">The percentage of padding to add around the region.</param>
+ <returns>A ViewSettings structure with the calculated zoom and offsets.</returns>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.X_Real_to_Pict(System.Single,System.Single,System.Double)">
+ <summary>
+ Converts an x-coordinate from real-world to pixel coordinates.
+ </summary>
+ <param name="t">The real-world x-coordinate.</param>
+ <param name="zoomFactor">The current zoom factor.</param>
+ <param name="horizontalOffset">The horizontal offset in pixels.</param>
+ <returns>The x-coordinate in pixel space.</returns>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.Y_Real_to_Pict(System.Single,System.Single,System.Double,System.Int32)">
+ <summary>
+ Converts a y-coordinate from real-world to pixel coordinates.
+ </summary>
+ <param name="t">The real-world y-coordinate.</param>
+ <param name="zoomFactor">The current zoom factor.</param>
+ <param name="VerticalShift">The vertical offset in pixels.</param>
+ <param name="height">The height of the drawing area in pixels.</param>
+ <returns>The y-coordinate in pixel space.</returns>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.DIST_Real_to_Pict(System.Single,System.Single)">
+ <summary>
+ Converts a distance from real-world to pixel coordinates.
+ </summary>
+ <param name="t">The real-world distance.</param>
+ <param name="zoomFactor">The current zoom factor.</param>
+ <returns>The distance in pixel space.</returns>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.X_Pict_to_Real(System.Single,System.Single,System.Double)">
+ <summary>
+ Converts an x-coordinate from pixel to real-world coordinates.
+ </summary>
+ <param name="x">The pixel x-coordinate.</param>
+ <param name="zoomFactor">The current zoom factor.</param>
+ <param name="horizontalOffset">The horizontal offset in pixels.</param>
+ <returns>The x-coordinate in real-world space.</returns>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.Y_Pict_to_Real(System.Single,System.Single,System.Double,System.Int32)">
+ <summary>
+ Converts a y-coordinate from pixel to real-world coordinates.
+ </summary>
+ <param name="y">The pixel y-coordinate.</param>
+ <param name="zoomFactor">The current zoom factor.</param>
+ <param name="VerticalShift">The vertical offset in pixels.</param>
+ <param name="height">The height of the drawing area in pixels.</param>
+ <returns>The y-coordinate in real-world space.</returns>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.VectorGraphicsEngine_Load(System.Object,System.EventArgs)">
+ <summary>
+ Handles the load event of the control.
+ </summary>
+ <param name="sender">The source of the event.</param>
+ <param name="e">The EventArgs containing event data.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.DrawLine(System.Int32,System.Single,System.Single,System.Single,System.Single,System.Drawing.Color,System.Boolean,System.Int32)">
+ <summary>
+ Draws a line on the specified layer.
+ </summary>
+ <param name="layerNo">The layer number to draw on.</param>
+ <param name="x1">The x-coordinate of the start point.</param>
+ <param name="y1">The y-coordinate of the start point.</param>
+ <param name="x2">The x-coordinate of the end point.</param>
+ <param name="y2">The y-coordinate of the end point.</param>
+ <param name="drawColor">The color of the line (defaults to Black).</param>
+ <param name="relativeCoords">Indicates if coordinates are relative.</param>
+ <param name="drawWidth">The width of the line in pixels.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.DrawCircle(System.Int32,System.Single,System.Single,System.Single,System.Drawing.Color,System.Boolean,System.Drawing.Color,System.Boolean,System.Int32)">
+ <summary>
+ Draws a circle on the specified layer.
+ </summary>
+ <param name="layerNo">The layer number to draw on.</param>
+ <param name="x1">The x-coordinate of the center.</param>
+ <param name="y1">The y-coordinate of the center.</param>
+ <param name="radius">The radius of the circle.</param>
+ <param name="drawColor">The outline color (defaults to Black).</param>
+ <param name="filled">Indicates if the circle should be filled.</param>
+ <param name="fillColor">The fill color (defaults to Black).</param>
+ <param name="fixedRadius">Indicates if the radius is fixed in pixels.</param>
+ <param name="drawWidth">The width of the outline in pixels.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.DrawRectangle(System.Int32,System.Single,System.Single,System.Single,System.Single,System.Boolean,System.Int32,System.Drawing.Color,System.Drawing.Color,System.Boolean)">
+ <summary>
+ Draws a rectangle on the specified layer.
+ </summary>
+ <param name="layerNo">The layer number to draw on.</param>
+ <param name="x1">The x-coordinate of the first corner.</param>
+ <param name="y1">The y-coordinate of the first corner.</param>
+ <param name="x2">The x-coordinate of the second corner.</param>
+ <param name="y2">The y-coordinate of the second corner.</param>
+ <param name="relativeCoords">Indicates if coordinates are relative.</param>
+ <param name="drawWidth">The width of the outline in pixels.</param>
+ <param name="drawColor">The outline color (defaults to Black).</param>
+ <param name="fillColor">The fill color (defaults to White).</param>
+ <param name="filled">Indicates if the rectangle should be filled.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.DrawLabel(System.Int32,System.String,System.Single,System.Single,System.Drawing.Color,System.Int32)">
+ <summary>
+ Draws a text label on the specified layer.
+ </summary>
+ <param name="layerNo">The layer number to draw on.</param>
+ <param name="text">The text to display.</param>
+ <param name="x1">The x-coordinate of the label's position.</param>
+ <param name="y1">The y-coordinate of the label's position.</param>
+ <param name="drawColor">The color of the text (defaults to Black).</param>
+ <param name="fontSize">The size of the font in points (defaults to 8).</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.OnPaint(System.Windows.Forms.PaintEventArgs)">
+ <summary>
+ Paints the control, including background, grid, axes, and drawing elements.
+ </summary>
+ <param name="e">The PaintEventArgs containing event data.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.Draw_Grid(System.Drawing.Graphics)">
+ <summary>
+ Draws the grid lines on the graphics surface.
+ </summary>
+ <param name="g">The Graphics object to draw on.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.Draw_Axes(System.Drawing.Graphics)">
+ <summary>
+ Draws the coordinate axes on the graphics surface.
+ </summary>
+ <param name="g">The Graphics object to draw on.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.DrawScaleBar(System.Drawing.Graphics)">
+ <summary>
+ Draws a scale bar in the bottom-left corner of the control.
+ </summary>
+ <param name="g">The Graphics object to draw on.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.GetNiceDistance(System.Single)">
+ <summary>
+ Adjusts a real-world distance to a "nice" round number (e.g., 1, 5, 10, 50).
+ </summary>
+ <param name="distance">The raw real-world distance.</param>
+ <returns>A rounded, user-friendly distance.</returns>
+</member>
+<member name="T:VectorGraphicsEngine.VectorGraphicsEngine.IDrawElement">
+ <summary>
+ Defines the contract for drawable elements within the VectorGraphicsEngine.
+ </summary>
+</member>
+<member name="P:VectorGraphicsEngine.VectorGraphicsEngine.IDrawElement.LayerNo">
+ <summary>
+ Gets the layer number of the drawing element.
+ </summary>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.IDrawElement.Draw(System.Drawing.Graphics,System.Single,System.Double,System.Double,System.Int32)">
+ <summary>
+ Draws the element on the specified graphics surface.
+ </summary>
+ <param name="g">The Graphics object to draw on.</param>
+ <param name="zoomFactor">The current zoom level of the view.</param>
+ <param name="horizontalOffset">The horizontal offset in pixel coordinates.</param>
+ <param name="VerticalShift">The vertical offset in pixel coordinates.</param>
+ <param name="height">The height of the drawing area in pixels.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.IDrawElement.GetBounds">
+ <summary>
+ Gets the bounding rectangle of the element in real-world coordinates.
+ </summary>
+ <returns>A RectangleF representing the bounds of the element.</returns>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.RaiseLayerNotInitializedWarning(System.Int32)">
+ <summary>
+ Raise  Layer Not Initialized Warning.
+ </summary>
+ <param name="layerNo">The layer No that was called and was not added.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.DrawElement.Draw(System.Drawing.Graphics,System.Single,System.Double,System.Double,System.Int32)">
+ <summary>
+ Draws the element on the specified graphics surface.
+ </summary>
+ <param name="g">The Graphics object to draw on.</param>
+ <param name="zoomFactor">The current zoom level of the view.</param>
+ <param name="horizontalOffset">The horizontal offset in pixel coordinates.</param>
+ <param name="VerticalShift">The vertical offset in pixel coordinates.</param>
+ <param name="height">The height of the drawing area in pixels.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.DrawElement.GetBounds">
+ <summary>
+ Gets the bounding rectangle of the element in real-world coordinates.
+ </summary>
+ <returns>A RectangleF representing the bounds of the element.</returns>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.LineElement.#ctor(VectorGraphicsEngine.VectorGraphicsEngine,System.Single,System.Single,System.Single,System.Single,System.Boolean,System.Int32,System.Drawing.Color,System.Int32)">
+ <summary>
+ Initializes a new instance of the LineElement class.
+ </summary>
+ <param name="x1">The x-coordinate of the start point.</param>
+ <param name="y1">The y-coordinate of the start point.</param>
+ <param name="x2">The x-coordinate of the end point.</param>
+ <param name="y2">The y-coordinate of the end point.</param>
+ <param name="relativeCoords">Indicates if coordinates are relative to the start point.</param>
+ <param name="drawWidth">The width of the line in pixels.</param>
+ <param name="drawColor">The color of the line.</param>
+ <param name="layerNo">The layer number to assign the line to.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.LineElement.Draw(System.Drawing.Graphics,System.Single,System.Double,System.Double,System.Int32)">
+ <summary>
+ Draws the line element on the specified graphics surface.
+ </summary>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.LineElement.GetBounds">
+ <summary>
+ Gets the bounding rectangle of the line in real-world coordinates.
+ </summary>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.CircleElement.#ctor(VectorGraphicsEngine.VectorGraphicsEngine,System.Single,System.Single,System.Single,System.Boolean,System.Int32,System.Drawing.Color,System.Drawing.Color,System.Boolean,System.Int32)">
+ <summary>
+ Initializes a new instance of the CircleElement class.
+ </summary>
+ <param name="x">The x-coordinate of the circle's center.</param>
+ <param name="y">The y-coordinate of the circle's center.</param>
+ <param name="radius">The radius of the circle.</param>
+ <param name="fixedRadius">Indicates if the radius is fixed in pixels.</param>
+ <param name="drawWidth">The width of the circle's outline.</param>
+ <param name="drawColor">The color of the circle's outline.</param>
+ <param name="fillColor">The fill color of the circle.</param>
+ <param name="filled">Indicates if the circle should be filled.</param>
+ <param name="layerNo">The layer number to assign the circle to.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.CircleElement.Draw(System.Drawing.Graphics,System.Single,System.Double,System.Double,System.Int32)">
+ <summary>
+ Draws the circle element on the specified graphics surface.
+ </summary>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.CircleElement.GetBounds">
+ <summary>
+ Gets the bounding rectangle of the circle in real-world coordinates.
+ </summary>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.RectangleElement.#ctor(VectorGraphicsEngine.VectorGraphicsEngine,System.Single,System.Single,System.Single,System.Single,System.Boolean,System.Int32,System.Drawing.Color,System.Drawing.Color,System.Boolean,System.Int32)">
+ <summary>
+ Initializes a new instance of the RectangleElement class.
+ </summary>
+ <param name="x1">The x-coordinate of the first corner.</param>
+ <param name="y1">The y-coordinate of the first corner.</param>
+ <param name="x2">The x-coordinate of the second corner.</param>
+ <param name="y2">The y-coordinate of the second corner.</param>
+ <param name="relativeCoords">Indicates if coordinates are relative.</param>
+ <param name="drawWidth">The width of the rectangle's outline.</param>
+ <param name="drawColor">The color of the rectangle's outline.</param>
+ <param name="fillColor">The fill color of the rectangle.</param>
+ <param name="filled">Indicates if the rectangle should be filled.</param>
+ <param name="layerNo">The layer number to assign the rectangle to.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.RectangleElement.Draw(System.Drawing.Graphics,System.Single,System.Double,System.Double,System.Int32)">
+ <summary>
+ Draws the rectangle element on the specified graphics surface.
+ </summary>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.RectangleElement.GetBounds">
+ <summary>
+ Gets the bounding rectangle of the rectangle in real-world coordinates.
+ </summary>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.LabelElement.#ctor(VectorGraphicsEngine.VectorGraphicsEngine,System.Single,System.Single,System.String,System.Drawing.Color,System.Int32,System.Int32)">
+ <summary>
+ Initializes a new instance of the LabelElement class.
+ </summary>
+ <param name="x">The x-coordinate of the label's position.</param>
+ <param name="y">The y-coordinate of the label's position.</param>
+ <param name="text">The text to display.</param>
+ <param name="drawColor">The color of the text.</param>
+ <param name="fontSize">The size of the font in points.</param>
+ <param name="layerNo">The layer number to assign the label to.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.LabelElement.Draw(System.Drawing.Graphics,System.Single,System.Double,System.Double,System.Int32)">
+ <summary>
+ Draws the label element on the specified graphics surface.
+ </summary>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.LabelElement.GetBounds">
+ <summary>
+ Gets the approximate bounding rectangle of the label in real-world coordinates.
+ </summary>
+</member>
+<member name="E:VectorGraphicsEngine.VectorGraphicsEngine.VectorMouseDown">
+ <summary>
+ Occurs when the mouse button is pressed within the control.
+ </summary>
+</member>
+<member name="E:VectorGraphicsEngine.VectorGraphicsEngine.VectorMouseMove">
+ <summary>
+ Occurs when the mouse moves over the control.
+ </summary>
+</member>
+<member name="E:VectorGraphicsEngine.VectorGraphicsEngine.LayerNotInitializedWarning">
+ <summary>
+ Occurs adding draw element to a layer that has not been initialized.
+ </summary>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+ <summary>
+ Handles the mouse move event to update coordinates and enable panning.
+ </summary>
+ <param name="e">The MouseEventArgs containing event data.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+ <summary>
+ Handles the mouse down event to initiate panning and raise the VectorMouseDown event.
+ </summary>
+ <param name="e">The MouseEventArgs containing event data.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.OnMouseWheel(System.Windows.Forms.MouseEventArgs)">
+ <summary>
+ Handles the mouse wheel event to zoom in or out.
+ </summary>
+ <param name="e">The MouseEventArgs containing event data.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+ <summary>
+ Handles the mouse up event to end panning.
+ </summary>
+ <param name="e">The MouseEventArgs containing event data.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.SaveAsImage(System.String,System.Int32,System.Int32,System.Drawing.Imaging.ImageFormat,System.Boolean)">
+ <summary>
+ Saves the current view as an image file.
+ </summary>
+ <param name="filePath">The path to save the image file.</param>
+ <param name="width">The width of the output image in pixels.</param>
+ <param name="height">The height of the output image in pixels.</param>
+ <param name="format">The image format (defaults to PNG if not specified).</param>
+ <param name="includeBackground">Indicates whether to include the background image.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.SaveRegionAsImage(System.String,System.Drawing.RectangleF,System.Int32,System.Int32,System.Drawing.Imaging.ImageFormat,System.Boolean,System.Single)">
+ <summary>
+ Saves a specific region of the view as an image file.
+ </summary>
+ <param name="filePath">The path to save the image file.</param>
+ <param name="region">The region in real-world coordinates to save.</param>
+ <param name="pixelWidth">The width of the output image in pixels.</param>
+ <param name="pixelHeight">The height of the output image in pixels.</param>
+ <param name="format">The image format (defaults to PNG if not specified).</param>
+ <param name="includeBackground">Indicates whether to include the background image.</param>
+ <param name="Padding">The padding percentage around the region.</param>
+</member>
+<member name="T:VectorGraphicsEngine.VectorGraphicsEngine.LayerClass">
+ <summary>
+ Represents the Layers setting class.
+ </summary>
+</member>
+<member name="T:VectorGraphicsEngine.VectorGraphicsEngine.ViewSettings">
+ <summary>
+ Represents the current view settings including zoom and offsets.
+ </summary>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.ViewSettings.#ctor(System.Single,System.Double,System.Double)">
+ <summary>
+ Initializes a new instance of the ViewSettings structure.
+ </summary>
+ <param name="zoom">The zoom factor.</param>
+ <param name="hShift">The horizontal shift in pixels.</param>
+ <param name="vShift">The vertical shift in pixels.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.ClearDrawingLayer(System.Int32)">
+ <summary>
+ Clears all drawing elements from the specified layer.
+ </summary>
+ <param name="layerNo">The layer number to clear.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.GetElementsInLayer(System.Int32)">
+ <summary>
+ Gets a list of drawing elements in the specified layer.
+ </summary>
+ <param name="layerNo">The layer number to query.</param>
+ <returns>A list of IDrawElement objects in the specified layer.</returns>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.AddLayer">
+ <summary>
+ Adds a new layer and returns its number.
+ </summary>
+ <returns>The number of the newly added layer.</returns>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.HideLayer(System.Int32)">
+ <summary>
+ Hides the specified layer, making its elements invisible.
+ </summary>
+ <param name="layerNo">The layer number to hide.</param>
+ <exception cref="T:System.ArgumentException">Thrown when the specified layer does not exist.</exception>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.ShowLayer(System.Int32)">
+ <summary>
+ Hides the specified layer.
+ </summary>
+ <param name="layerNo">The layer number to hide.</param>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.ClearDrawing">
+ <summary>
+ Clears all drawing elements and resets the view settings.
+ </summary>
+</member>
+<member name="F:VectorGraphicsEngine.VectorGraphicsEngine.MouseLocationReal">
+ <summary>
+ The current mouse location in real-world coordinates.
+ </summary>
+</member>
+<member name="F:VectorGraphicsEngine.VectorGraphicsEngine.MouseLocationPixel">
+ <summary>
+ The current mouse location in pixel coordinates.
+ </summary>
+</member>
+<member name="M:VectorGraphicsEngine.VectorGraphicsEngine.#ctor">
+ <summary>
+ Initializes a new instance of the VectorGraphicsEngine class.
+ </summary>
+</member>
+<member name="P:VectorGraphicsEngine.VectorGraphicsEngine.ShowScaleBar">
+ <summary>
+ Gets or sets a value indicating whether to display the scale bar.
+ </summary>
+</member>
+<member name="P:VectorGraphicsEngine.VectorGraphicsEngine.Layer(System.Int32)">
+ <summary>
+ Gets or sets a layer by its layer number.
+ </summary>
+ <param name="index">The layer number to access.</param>
+ <returns>The Layer object associated with the specified layer number.</returns>
+ <exception cref="T:System.ArgumentException">Thrown when the specified layer does not exist.</exception>
+</member>
+<member name="P:VectorGraphicsEngine.VectorGraphicsEngine.GridSpacing">
+ <summary>
+ Gets or sets the spacing between grid lines in real-world units.
+ </summary>
+</member>
+<member name="P:VectorGraphicsEngine.VectorGraphicsEngine.ShowAxes">
+ <summary>
+ Gets or sets a value indicating whether to display the axes.
+ </summary>
+</member>
+<member name="P:VectorGraphicsEngine.VectorGraphicsEngine.ShowGrid">
+ <summary>
+ Gets or sets a value indicating whether to display the grid.
+ </summary>
+</member>
+<member name="P:VectorGraphicsEngine.VectorGraphicsEngine.DisplayScale">
+ <summary>
+ Gets or sets the current display scale (zoom factor).
+ </summary>
+</member>
+</members>
+</doc>

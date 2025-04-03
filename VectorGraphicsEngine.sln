@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29318.209
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VectorGraphicsEngine", "VectorGraphicsEngine\VectorGraphicsEngine.vbproj", "{03A49DE6-5536-4603-8811-AEE7407ECD3D}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Demo", "Demo\Demo.vbproj", "{8AA57AA3-CD48-4B48-AF83-2BE3133F8875}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03A49DE6-5536-4603-8811-AEE7407ECD3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03A49DE6-5536-4603-8811-AEE7407ECD3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03A49DE6-5536-4603-8811-AEE7407ECD3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03A49DE6-5536-4603-8811-AEE7407ECD3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AA57AA3-CD48-4B48-AF83-2BE3133F8875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AA57AA3-CD48-4B48-AF83-2BE3133F8875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AA57AA3-CD48-4B48-AF83-2BE3133F8875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AA57AA3-CD48-4B48-AF83-2BE3133F8875}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A62C5E6-3DE9-4F5C-AB7E-DF1C84B11AF2}
+	EndGlobalSection
+EndGlobal
