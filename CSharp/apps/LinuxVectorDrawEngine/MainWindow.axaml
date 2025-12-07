@@ -1,0 +1,22 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Arnaoot.Avalonia.MainWindow"
+        Title="HexagonDraw" Width="1024" Height="768">
+    <Grid RowDefinitions="Auto,*" ColumnDefinitions="Auto,*">
+        <!-- Toolbar -->
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+                    Orientation="Horizontal" Margin="4">
+            <Button Content="←" Click="PanLeft" Width="40"/>
+            <Button Content="→" Click="PanRight" Width="40" Margin="2,0"/>
+            <Button Content="↑" Click="PanUp" Width="40" Margin="2,0"/>
+            <Button Content="↓" Click="PanDown" Width="40" Margin="2,0"/>
+            <Button Content="Zoom +" Click="ZoomIn" Margin="4,0"/>
+            <Button Content="Zoom –" Click="ZoomOut" Margin="0,0,4,0"/>
+            <Button Content="Fit" Click="ZoomFit" Margin="0,0,8,0"/>
+        </StackPanel>
+
+        <!-- Drawing surface -->
+        <local:DrawingSurface x:Name="DrawingSurface" 
+                              Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>
